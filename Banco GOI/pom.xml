@@ -1,0 +1,158 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- ============================================================= -->
+  <!--   Identificação do projeto                                   -->
+  <!-- ============================================================= -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>br.com.BancoGOI</groupId>
+  <artifactId>GOI</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>BancoGOI Webapp</name>
+
+  <!-- ============================================================= -->
+  <!--   Propriedades globais — concentram versões e flags           -->
+  <!-- ============================================================= -->
+  <properties>
+    <!-- Versão alvo da linguagem (byte-code)                        -->
+    <!-- Troque para 17 se for usar Tomcat 9+                         -->
+    <maven.compiler.release>8</maven.compiler.release>
+
+    <!-- Encoding padrão dos fontes -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Versões de dependências / plugins -->
+    <mysql.version>8.0.32</mysql.version>
+    <gson.version>2.10.1</gson.version>
+    <junit.version>4.13.2</junit.version>
+
+    <compiler.plugin.version>3.11.0</compiler.plugin.version>
+    <war.plugin.version>3.3.2</war.plugin.version>
+    <tomcat.plugin.version>2.2</tomcat.plugin.version> <!-- tomcat7-maven-plugin -->
+  </properties>
+
+  <!-- ============================================================= -->
+  <!--   Dependências                                                -->
+  <!-- ============================================================= -->
+  <dependencies>
+
+    <!-- Conector MySQL (coordenadas novas, reverse-DNS) -->
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>${mysql.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- API Servlet fornecida pelo contêiner (Tomcat) -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- JSTL -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <!-- Gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson.version}</version>
+    </dependency>
+
+    <!-- Testes -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Connection-pool leve e rápido -->
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>5.1.0</version>
+    </dependency>
+
+
+  </dependencies>
+
+  <!-- ============================================================= -->
+  <!--   Build e plugins                                             -->
+  <!-- ============================================================= -->
+  <build>
+    <finalName>BancoGOI</finalName>
+
+    <plugins>
+
+      <!-- Compilador -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler.plugin.version}</version>
+        <configuration>
+          <!-- release cobre source/target em JDK 9+ -->
+          <release>${maven.compiler.release}</release><source>8</source><target>8</target>
+        </configuration>
+      </plugin>
+
+      <!-- Gerador do WAR -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>${war.plugin.version}</version>
+        <configuration>
+          <warSourceDirectory>src/main/webapp</warSourceDirectory>
+          <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+        </configuration>
+      </plugin>
+
+      <!-- Tomcat 7 para rodar a aplicação localmente -->
+      <!-- Se migrar para Java 17, troque por tomcat9-maven-plugin -->
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>${tomcat.plugin.version}</version>
+
+        <configuration>
+          <path>/</path>
+          <enableNaming>false</enableNaming>
+        </configuration>
+
+        <executions>
+          <execution>
+            <id>tomcat-run</id>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+
+    </plugins>
+  </build>
+
+  <!-- Repositório central já vem configurado por padrão,          -->
+  <!-- mas deixamos explícito para não restar dúvidas              -->
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+  </repositories>
+
+</project>
