@@ -5,6 +5,14 @@
   />
 </a>
 
+<p align="center">
+  <img 
+    src="https://cdn3d.iconscout.com/3d/premium/thumb/java-file-3d-icon-download-in-png-blend-fbx-gltf-formats--logo-extension-format-pack-files-folders-icons-5607407.png" 
+    alt="Logo SQL"
+    width="150px"
+  />
+</p>
+
 # Banco GOI
 
 Este projeto representa a estrutura e funcionamento do Banco GOI, incluindo serviços financeiros e produtos bancários. Além disso, descrevemos a organização do time (Squad) responsável pelo desenvolvimento.
