@@ -9,7 +9,7 @@
   <img 
     src="https://cdn3d.iconscout.com/3d/premium/thumb/java-file-3d-icon-download-in-png-blend-fbx-gltf-formats--logo-extension-format-pack-files-folders-icons-5607407.png" 
     alt="Logo SQL"
-    width="150px"
+    width="300px"
   />
 </p>
 
