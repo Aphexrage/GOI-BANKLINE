@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <a href="#">
   <img 
     width="100%" 
@@ -124,3 +125,7 @@ Nesta seção, apresentamos as imagens das prototipagens do projeto. As imagens 
     width="100%" 
   />
 </p>
+=======
+# GOI-BANK
+Projeto de faculdade que desenvolvi em grupo
+>>>>>>> a588d4ddf8ae91f4135e1071f9b1da5889593c4e
