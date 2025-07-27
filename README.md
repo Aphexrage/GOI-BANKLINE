@@ -51,10 +51,11 @@ O projeto Banco GOI está em constante evolução! Já estamos planejando as pr�
 
 ### O time de desenvolvimento está dividido em quatro áreas principais:
 
-- **Backend** ⚙️ (Marcelo Afonso, Italo Silva)  
+- **Backend** ⚙️ (Marcelo Afonso, Italo Silva e Gustavo)  
 - **Frontend** 🎨 (Maycon Daynor, Gustavo)  
 - **Banco de Dados** 🗄️ (Marcelo Afonso, Italo Silva, Gustavo Mendes)  
-- **Infraestrutura** 🛠️ (Marcelo Afonso)  
+- **Infraestrutura** 🛠️ (Marcelo Afonso)
+- **IA** 🛠️ (Gustavo)  
 
 Cada área tem a responsabilidade de desenvolver e manter suas respectivas partes do sistema.
 
